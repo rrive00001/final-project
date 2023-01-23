@@ -18,13 +18,6 @@ const DoctorList: NextPage = () => {
                     <a className="btn btn-ghost normal-case text-xl">Navbar</a>
                 </div>
                 <div className="flex-none gap-2">
-                    <div className="flex-none">
-                        <ul className="menu menu-horizontal px-1">
-                            <li className="hover-bordered"><a>Item 1</a></li>
-                            <li className="hover-bordered"><a>Item 2</a></li>
-                            <li className="hover-bordered"><a>Item 3</a></li>                            
-                        </ul>
-                    </div>
                     <div className="form-control">
                         <input type="text" placeholder="Search" className="input input-bordered" />
                     </div>
