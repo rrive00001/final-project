@@ -1,0 +1,1089 @@
+<button className="btn btn-primary">One</button>
+      <button className="btn btn-secondary">Two</button>
+      <button className="btn btn-accent btn-outline">Three</button>
+==========================================================================
+custom css daisyUI
+
+[data-theme="mytheme"] .btn {
+  border-width: 2px;
+  border-color: black;
+}   
+
+==============================================================================
+//login template
+ {/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full bg-gray-50">
+        <body class="h-full">
+        ```
+      */}
+      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md space-y-8">
+          <div>
+            <img
+              className="mx-auto h-12 w-auto"
+              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              alt="Your Company"
+            />
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+              Sign in to your account
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Or{' '}
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                start your 14-day free trial
+              </a>
+            </p>
+          </div>
+          <form className="mt-8 space-y-6" action="#" method="POST">
+            <input type="hidden" name="remember" defaultValue="true" />
+            <div className="-space-y-px rounded-md shadow-sm">
+              <div>
+                <label htmlFor="email-address" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Email address"
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  id="remember-me"
+                  name="remember-me"
+                  type="checkbox"
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                />
+                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                  Remember me
+                </label>
+              </div>
+
+              <div className="text-sm">
+                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                  Forgot your password?
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
+                </span>
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+====================      =========================================================================
+Stacked Layouts
+Application UI
+Application Shells
+Dark nav with white page header
+
+import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+
+const user = {
+  name: 'Tom Cook',
+  email: 'tom@example.com',
+  imageUrl:
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+}
+const navigation = [
+  { name: 'Dashboard', href: '#', current: true },
+  { name: 'Team', href: '#', current: false },
+  { name: 'Projects', href: '#', current: false },
+  { name: 'Calendar', href: '#', current: false },
+  { name: 'Reports', href: '#', current: false },
+]
+const userNavigation = [
+  { name: 'Your Profile', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#' },
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export default function Example() {
+  return (
+    <>
+      {/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full bg-gray-100">
+        <body class="h-full">
+        ```
+      */}
+      <div className="min-h-full">
+        <Disclosure as="nav" className="bg-gray-800">
+          {({ open }) => (
+            <>
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex h-16 items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0">
+                      <img
+                        className="h-8 w-8"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                        alt="Your Company"
+                      />
+                    </div>
+                    <div className="hidden md:block">
+                      <div className="ml-10 flex items-baseline space-x-4">
+                        {navigation.map((item) => (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            className={classNames(
+                              item.current
+                                ? 'bg-gray-900 text-white'
+                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                              'px-3 py-2 rounded-md text-sm font-medium'
+                            )}
+                            aria-current={item.current ? 'page' : undefined}
+                          >
+                            {item.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="hidden md:block">
+                    <div className="ml-4 flex items-center md:ml-6">
+                      <button
+                        type="button"
+                        className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      >
+                        <span className="sr-only">View notifications</span>
+                        <BellIcon className="h-6 w-6" aria-hidden="true" />
+                      </button>
+
+                      {/* Profile dropdown */}
+                      <Menu as="div" className="relative ml-3">
+                        <div>
+                          <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <span className="sr-only">Open user menu</span>
+                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                          </Menu.Button>
+                        </div>
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            {userNavigation.map((item) => (
+                              <Menu.Item key={item.name}>
+                                {({ active }) => (
+                                  <a
+                                    href={item.href}
+                                    className={classNames(
+                                      active ? 'bg-gray-100' : '',
+                                      'block px-4 py-2 text-sm text-gray-700'
+                                    )}
+                                  >
+                                    {item.name}
+                                  </a>
+                                )}
+                              </Menu.Item>
+                            ))}
+                          </Menu.Items>
+                        </Transition>
+                      </Menu>
+                    </div>
+                  </div>
+                  <div className="-mr-2 flex md:hidden">
+                    {/* Mobile menu button */}
+                    <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <span className="sr-only">Open main menu</span>
+                      {open ? (
+                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                      ) : (
+                        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                      )}
+                    </Disclosure.Button>
+                  </div>
+                </div>
+              </div>
+
+              <Disclosure.Panel className="md:hidden">
+                <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+                  {navigation.map((item) => (
+                    <Disclosure.Button
+                      key={item.name}
+                      as="a"
+                      href={item.href}
+                      className={classNames(
+                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        'block px-3 py-2 rounded-md text-base font-medium'
+                      )}
+                      aria-current={item.current ? 'page' : undefined}
+                    >
+                      {item.name}
+                    </Disclosure.Button>
+                  ))}
+                </div>
+                <div className="border-t border-gray-700 pt-4 pb-3">
+                  <div className="flex items-center px-5">
+                    <div className="flex-shrink-0">
+                      <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                    </div>
+                    <div className="ml-3">
+                      <div className="text-base font-medium leading-none text-white">{user.name}</div>
+                      <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
+                    </div>
+                    <button
+                      type="button"
+                      className="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    >
+                      <span className="sr-only">View notifications</span>
+                      <BellIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="mt-3 space-y-1 px-2">
+                    {userNavigation.map((item) => (
+                      <Disclosure.Button
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                      >
+                        {item.name}
+                      </Disclosure.Button>
+                    ))}
+                  </div>
+                </div>
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+
+        <header className="bg-white shadow">
+          <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+          </div>
+        </header>
+        <main>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            {/* Replace with your content */}
+            <div className="px-4 py-6 sm:px-0">
+              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200" />
+            </div>
+            {/* /End replace */}
+          </div>
+        </main>
+      </div>
+    </>
+  )
+}
+
+====================      =========================================================================
+Sign-in and Registration
+Application UI
+Forms
+Simple no labels
+
+/*
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+*/
+import { LockClosedIcon } from '@heroicons/react/20/solid'
+
+export default function Example() {
+  return (
+    <>
+      {/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full bg-gray-50">
+        <body class="h-full">
+        ```
+      */}
+      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md space-y-8">
+          <div>
+            <img
+              className="mx-auto h-12 w-auto"
+              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              alt="Your Company"
+            />
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+              Sign in to your account
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Or{' '}
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                start your 14-day free trial
+              </a>
+            </p>
+          </div>
+          <form className="mt-8 space-y-6" action="#" method="POST">
+            <input type="hidden" name="remember" defaultValue="true" />
+            <div className="-space-y-px rounded-md shadow-sm">
+              <div>
+                <label htmlFor="email-address" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Email address"
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  id="remember-me"
+                  name="remember-me"
+                  type="checkbox"
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                />
+                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                  Remember me
+                </label>
+              </div>
+
+              <div className="text-sm">
+                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                  Forgot your password?
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
+                </span>
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  )
+}
+====================      =========================================================================
+            <div className="tile bg-gray-500 row-start-2 row-end-5 col-span-1 md:col-span-2 lg:col-span-2">
+                <h1 className="tile-marker">TWO</h1>
+                <div>
+                    <div className="avatar">
+                        <div className="w-24 rounded-full">
+                            <img src="https://placeimg.com/192/192/people" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="label">
+                            <span className="label-text">Welcome</span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                                    <ul className="menu bg-base-100 w-56 p-2 rounded-box">
+                    <li>
+                        <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                        Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Daftar Dokter
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                            Item 3
+                        </a>
+                    </li>
+                </ul>
+
+                <br/>
+                <div>
+                    <button className="btn btn-info w-32 rounded-full">LOG OUT</button>
+                </div>
+
+                </div>
+                
+            </div>
+
+====================      =========================================================================
+====================      =========================================================================
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Link from "next/link";
+import Image from 'next/image'
+import React, { Component } from "react";
+import { Fragment } from 'react'
+import PropTypes from 'prop-types';
+//import { LockClosedIcon } from '@heroicons/react/20/solid'
+
+
+
+const DoctorList: NextPage = () => {
+  return (
+    <>
+        <div>
+            <div className="container m-auto grid grid-cols-3 grid-rows-5 md:grid-cols-5 lg:grid-cols-8 gap-4">
+            <div className="tile bg-teal-300 col-span-full">
+                <h1 className="tile-marker">ONE</h1>
+            </div>
+
+<div className="navbar bg-base-100">
+  <div className="flex-1">
+    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+  </div>
+  <div className="flex-none gap-2">
+    <div className="form-control">
+      <input type="text" placeholder="Search" className="input input-bordered" />
+    </div>
+    <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src="https://placeimg.com/80/80/people" />
+        </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+        <li>
+          <a className="justify-between">
+            Profile
+            <span className="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+            <div className="tile bg-gray-500 row-start-2 row-end-5 col-span-1 md:col-span-2 lg:col-span-3">
+                <h1 className="tile-marker">TWO</h1>
+                <div>
+
+
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                          <div className="avatar">
+                            <div className="w-24 rounded-full">
+                            <img src="https://placeimg.com/192/192/people" />
+                        </div>
+
+
+                        
+                    </div>
+                            
+                        </figure>
+
+
+
+                        <div className="card-body items-center text-center">
+                            <h1 className="card-title">Welcome Username!</h1>
+
+                                            <div>
+                    <ul className="menu bg-base-100 w-56 p-2 rounded-box">
+                    <li>
+                        <a>
+                        Dashboard
+                        </a>
+                    </li>
+                   <li>
+                        <a>
+                            Appointment
+                        </a>
+                    </li>
+                   <li>
+                        <a>
+                            Payment
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            Daftar Dokter
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            Riwayat
+                        </a>
+                    </li>
+                </ul>
+
+                <br/>
+                <div>
+                    <button className="btn btn-info w-32 rounded-full">LOG OUT</button>
+                </div>
+
+                </div>
+
+                        </div>
+                        <br/>
+                        
+                    </div>
+
+
+
+                    <div>
+
+
+                    </div>
+                </div>
+                
+            </div>
+            <div className="tile bg-yellow-500 row-start-4 row-end-5 md:row-start-2 md:row-end-3 col-span-2 md:col-span-3 lg:col-span-6">
+                <h1 className="tile-marker">THREE</h1>
+                <h1>DAFTAR DOKTER TEMP</h1>
+            </div>
+            <div className="tile bg-lime-600 lg:col-start-4 lg:col-span-2">
+                <h1 className="tile-marker">FOUR</h1>
+            </div>
+            <div className="tile bg-green-600">
+                <h1 className="tile-marker">FIVE</h1>
+            </div>
+            <div className="tile bg-emerald-500">
+                <h1 className="tile-marker">SIX</h1>
+            </div>
+            <div className="tile bg-teal-500">
+                <h1 className="tile-marker">SEVEN</h1>
+            </div>
+
+            <div className="tile bg-pink-500 row-start-5 md:col-span-full">
+                <h1 className="tile-marker">NINE</h1>
+            </div>
+            </div>
+        </div>
+                <div>
+                <div>
+            </div>
+        </div>
+    </>
+  )
+}
+
+export default DoctorList
+
+====================      =========================================================================
+====================      ============================================================================
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Link from "next/link";
+import Image from 'next/image'
+import React, { Component } from "react";
+import { Fragment } from 'react'
+import PropTypes from 'prop-types';
+//import { LockClosedIcon } from '@heroicons/react/20/solid'
+
+
+
+const DoctorList: NextPage = () => {
+  return (
+    <>
+        <div>
+            <div className="container m-auto grid grid-cols-3 grid-rows-5 md:grid-cols-5 lg:grid-cols-8 gap-4">
+            
+
+<div className="navbar bg-base-100">
+  <div className="flex-1">
+    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+  </div>
+  <div className="flex-none gap-2">
+    <div className="form-control">
+      <input type="text" placeholder="Search" className="input input-bordered" />
+    </div>
+    <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src="https://placeimg.com/80/80/people" />
+        </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+        <li>
+          <a className="justify-between">
+            Profile
+            <span className="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+            <div className="tile bg-gray-500 row-start-2 row-end-5 col-span-1 md:col-span-2 lg:col-span-3">
+                <h1 className="tile-marker">TWO</h1>
+                <div>
+
+
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                          <div className="avatar">
+                            <div className="w-24 rounded-full">
+                            <img src="https://placeimg.com/192/192/people" />
+                        </div>
+
+
+                        
+                    </div>
+                            
+                        </figure>
+
+
+
+                        <div className="card-body items-center text-center">
+                            <h1 className="card-title">Welcome Username!</h1>
+
+                                            <div>
+                    <ul className="menu bg-base-100 w-56 p-2 rounded-box">
+                    <li>
+                        <a>
+                        Dashboard
+                        </a>
+                    </li>
+                   <li>
+                        <a>
+                            Appointment
+                        </a>
+                    </li>
+                   <li>
+                        <a>
+                            Payment
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            Daftar Dokter
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            Riwayat
+                        </a>
+                    </li>
+                </ul>
+
+                <br/>
+                <div>
+                    <button className="btn btn-info w-32 rounded-full">LOG OUT</button>
+                </div>
+
+                </div>
+
+                        </div>
+                        <br/>
+                        
+                    </div>
+
+
+
+                    <div>
+
+
+                    </div>
+                </div>
+                
+            </div>
+            <div className="tile bg-yellow-500 row-start-4 row-end-5 md:row-start-2 md:row-end-3 col-span-2 md:col-span-3 lg:col-span-6">
+                <h1 className="tile-marker">THREE</h1>
+                <h1>DAFTAR DOKTER TEMP</h1>
+            </div>
+            <div className="tile bg-lime-600 lg:col-start-4 lg:col-span-2">
+                <h1 className="tile-marker">FOUR</h1>
+            </div>
+            <div className="tile bg-green-600">
+                <h1 className="tile-marker">FIVE</h1>
+            </div>
+            <div className="tile bg-emerald-500">
+                <h1 className="tile-marker">SIX</h1>
+            </div>
+            <div className="tile bg-teal-500">
+                <h1 className="tile-marker">SEVEN</h1>
+            </div>
+
+            <div className="tile bg-pink-500 row-start-5 md:col-span-full">
+                <h1 className="tile-marker">NINE</h1>
+            </div>
+            </div>
+        </div>
+                <div>
+                <div>
+            </div>
+        </div>
+    </>
+  )
+}
+
+export default DoctorList
+
+=================      =========================================================================
+
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                        <li>
+                            <figure className="px-10 pt-10">
+                                <div className="avatar">
+                                    <div className="w-24 rounded-full">
+                                        <img src="https://placeimg.com/192/192/people" />
+                                    </div>
+                                </div>                              
+                            </figure>
+                        </li>
+                        <li>
+                            <h1 className="card-title">Welcome Username!</h1>
+                        </li>
+
+                        <li><a>Sidebar Item 1</a></li>
+                        <li><a>Sidebar Item 2</a></li>
+                    </ul>
+                
+                </div>
+====================      =========================================================================
+side menu ver 02
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                        <li>
+                            <div className="card w-96 bg-base-100 shadow-xl">
+                                <figure className="px-10 pt-10">
+                                    <div className="avatar">
+                                        <div className="w-24 rounded-full">
+                                            <img src='https://placeimg.com/192/192/people'/>
+                                        </div>
+                                    </div>
+                                </figure>
+                                <div className="card-body items-center text-center">
+                                    <h1 className="card-title">Welcome Username!</h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='hover-bordered'><a>Dashboard</a></li>
+                        <li className="hover-bordered"><a>Sidebar Item 1</a></li>
+                        <li className="hover-bordered"><a>Sidebar Item 2</a></li>
+                    </ul>
+                
+                </div>
+====================      =========================================================================
+Dashboardmain 03
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Link from "next/link";
+import Image from 'next/image'
+import React, { Component } from "react";
+import { Fragment } from 'react'
+import PropTypes from 'prop-types';
+//import { LockClosedIcon } from '@heroicons/react/20/solid'
+
+
+
+const DoctorList: NextPage = () => {
+  return (
+    <>
+        <div>
+            <div className="navbar bg-neutral text-neutral-content">
+                <div className="flex-1">
+                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                </div>
+                <div className="flex-none gap-2">
+                    <div className="flex-none">
+                        <ul className="menu menu-horizontal px-1">
+                        <li><a>Item 1</a></li>
+                        <li tabIndex={0}>
+                            <a>
+                            Parent
+                            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+                            </a>
+                            <ul className="p-2 bg-base-100">
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Item 3</a></li>
+                        </ul>
+                    </div>
+                    <div className="form-control">
+                    <input type="text" placeholder="Search" className="input input-bordered" />
+                    </div>
+                    <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                        <img src="https://placeimg.com/80/80/people" />
+                        </div>
+                    </label>
+                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                        <li>
+                        <a className="justify-between">
+                            Profile
+                            <span className="badge">New</span>
+                        </a>
+                        </li>
+                        <li ><a>Settings</a></li>
+                        <li><a>Logout</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div className="drawer drawer-mobile bg-info">
+                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col items-center justify-center">
+                    
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                
+                </div> 
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                        <li>
+                            <div className="card w-84 bg-base-100 shadow-xl">
+                                <figure className="px-10 pt-10">
+                                    <div className="avatar">
+                                        <div className="w-24 rounded-full">
+                                            <img src='https://placeimg.com/192/192/people'/>
+                                        </div>
+                                    </div>
+                                </figure>
+                                <div className="card-body items-center text-center">
+                                    <h1 className="card-title">Welcome Username!</h1>
+                                </div>
+                            </div>
+                        </li>
+                                <ul className="menu bg-base-100 w-56 p-2 rounded-box">
+                                    <li className="hover-bordered">
+                                        <a>Dashboard</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Appointment</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Payment</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Daftar Dokter</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Riwayat</a>
+                                    </li>
+                                </ul>
+                            <br/>
+                                <div>
+                                    <button className="btn btn-info w-32 rounded-full">LOG OUT</button>
+                                </div>
+                    </ul>
+                
+                </div>
+            </div>          
+
+            <div className="tile bg-gray-500 row-start-2 row-end-5 col-span-1 md:col-span-2 lg:col-span-3">
+                <h1 className="tile-marker">TWO</h1>
+                <div>
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                            <div className="avatar">
+                                <div className="w-24 rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
+                                </div>
+                            </div>                            
+                        </figure>
+
+                        <div className="card-body items-center text-center">
+                            <h1 className="card-title">Welcome Username!</h1>
+                            <div>
+                                <ul className="menu bg-base-100 w-56 p-2 rounded-box">
+                                    <li className="hover-bordered">
+                                        <a>Dashboard</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Appointment</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Payment</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Daftar Dokter</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Riwayat</a>
+                                    </li>
+                                </ul>
+                            <br/>
+                                <div>
+                                    <button className="btn btn-info w-32 rounded-full">LOG OUT</button>
+                                </div>
+
+                </div>
+
+                </div>
+                        <br/>
+                        
+            </div>
+
+
+
+                    <div>
+
+
+                    </div>
+                </div>
+                
+            </div>
+
+
+        </div>
+    </>
+  )
+}
+
+export default DoctorList
+
+====================      =========================================================================
+Dashboardmain 01
+
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                            <div className="avatar">
+                                <div className="w-24 rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
+                                </div>
+                            </div>                            
+                        </figure>
+
+                        <div className="card-body items-center text-center">
+                            <h1 className="card-title">Welcome Username!</h1>
+                            <div>
+                                <ul className="menu bg-base-100 w-56 p-2 rounded-box">
+                                    <li className="hover-bordered">
+                                        <a>Dashboard</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Appointment</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Payment</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Daftar Dokter</a>
+                                    </li>
+                                    <li className="hover-bordered">
+                                        <a>Riwayat</a>
+                                    </li>
+                                </ul>
+                            <br/>
+                                <div>
+                                    <button className="btn btn-info w-32 rounded-full">LOG OUT</button>
+                                </div>
+
+                </div>
+
+                </div>
+                        <br/>
+                        
+            </div>
+====================      =========================================================================
+menu Submenu
+                            <li tabIndex={0}>
+                                <a>
+                                    Parent
+                                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+                                </a>
+                                <ul className="p-2 bg-base-100">
+                                    <li><a>Submenu 1</a></li>
+                                    <li><a>Submenu 2</a></li>
+                                </ul>
+                            </li>
+====================      =========================================================================
+                    <div className="flex-none">
+                        <ul className="menu menu-horizontal px-1">
+                            <li className="hover-bordered"><a>Item 1</a></li>
+                            <li className="hover-bordered"><a>Item 2</a></li>
+                            <li className="hover-bordered"><a>Item 3</a></li>                            
+                        </ul>
+                    </div>
+====================      =========================================================================
+====================      =========================================================================
+
+
+
